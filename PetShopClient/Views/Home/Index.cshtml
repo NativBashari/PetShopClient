@@ -1,0 +1,26 @@
+﻿@{
+	ViewData["Title"] = "Home Page";
+}
+@model IEnumerable<Animal>
+<div class="text-center">
+	<h1 class="display-4">Welcome</h1>
+	<h2>Our most popular animals</h2>
+	<div class="d-flex justify-content-between">
+		@foreach (var animal in Model)
+		{
+			<div class="d-inline-block w-50 m-5">
+				<partial name="_AnimalView" model="@animal"></partial>
+				<div>
+					<partial name="_Comments" model="@animal.Comments"></partial>
+				</div>
+				<div>
+					<partial name="_PostComment" model="@new Comment(){AnimalId = @animal.AnimalId}"></partial>
+				</div>
+
+			</div>
+
+
+		}
+	</div>
+</div>
+

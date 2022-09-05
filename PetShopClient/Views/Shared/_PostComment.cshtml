@@ -1,0 +1,23 @@
+﻿@model Comment;
+<section>
+			<form method="post" asp-controller="Animal" asp-action="PostComment">
+				<input asp-for="AnimalId" value="@Model.AnimalId" hidden/>
+			<div class="card-footer py-3 border-0" style="background-color: #f8f9fa;">
+				<div class="d-flex flex-start w-100">
+					<img class="rounded-circle shadow-1-strong me-3"
+						 src="https://img.freepik.com/premium-vector/young-man-avatar-character-vector-illustration-design_24877-18516.jpg?w=2000" alt="avatar" width="40"
+						 height="40" />
+					<div class="form-outline w-100">
+						<textarea class="form-control" id="textAreaExample" rows="4"
+								  style="background: #fff;" asp-for="CommentText"></textarea>
+						<label class="form-label" for="textAreaExample">Message</label>
+					</div>
+				</div>
+				<div class="float-end mt-2 pt-1">
+					<button type="submit" class="btn btn-primary btn-sm">Post comment</button>
+					<button type="button" class="btn btn-outline-primary btn-sm">Cancel</button>
+				</div>
+			</div>
+			</form>
+	
+		</section>

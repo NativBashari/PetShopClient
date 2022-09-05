@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+@model IEnumerable<Animal>;
+<h1>Animals list</h1>
+<div>
+    <div>
+        <form method="post"  asp-action="Index">
+        <lable>Select Category </lable>
+          <select id="id" name="id" class="form-select">
+            <option value="0">Categories</option>
+            @foreach(var item in this.ViewBag.Items)
+            {
+                <option value="@item.CategoryId">@item.Name</option>              
+            }   
+        </select>   
+        <button type="submit" class="btn btn-light">Filter</button>
+        </form>
+    </div> 
+    <table class="table table-hover">
+        <thed>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Picture</th>
+                <th>Description</th>
+            </tr>
+        </thed>
+        <tbody>
+            @foreach(var animal in Model){
+                <tr>
+                    <td>@animal.Name</td>
+                    <td>@animal.Age</td>
+                    <td><img src="@animal.PictureUrl"/></td>
+                    <td>@animal.Description</td>
+                    <td><a asp-controller="Animal" asp-action="Index" class="btn btn-success" asp-route-id="@animal.AnimalId">Details & Comments</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

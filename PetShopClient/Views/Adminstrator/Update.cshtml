@@ -1,0 +1,52 @@
+﻿@{
+	ViewData["Title"] = "Update";
+}
+@model Animal;
+<div class="d-flex justify-content-between">
+	<div class="d-inline-block w-50">
+		<h1>Update Animal</h1>
+		<form method="post" asp-action="Update" class="w-75">
+			<div class="form-row">
+				<input asp-for="AnimalId" hidden />
+				<div class="col-md-10 mb-3">
+					<label>Animal name:</label>
+					<input asp-for="Name" class="form-control" />
+					<span asp-validation-for="Name" class="text-danger"></span>
+				</div>
+				<div class="col-md-10 mb-3">
+					<label>Animal Category</label>
+					<select class="form-select col-md-10" asp-for="CategoryId">
+						@foreach (Category item in ViewBag.Items)
+						{
+							<option value="@item.CategoryId">@item.Name</option>
+						}
+					</select>
+					<span asp-validation-for=" Category" class="text-danger">
+					</span>
+				</div>
+				<div class="col-md-10 mb-3">
+					<label>Animal age:</label>
+					<input asp-for="Age" class="form-control" />
+					<span asp-validation-for="Age" class="text-danger"></span>
+				</div>
+				<div class="col-md-10 mb-3">
+					<label>Animal description:</label>
+					<textarea asp-for="Description" class="form-control"></textarea>
+					<span asp-validation-for="Description" class="text-danger"></span>
+				</div>
+				<div class="col-md-10 mb-3">
+					<label>Picture URL:</label>
+					<input asp-for="PictureUrl" class="form-control" />
+					<span asp-validation-for="PictureUrl" class="text-danger"></span>
+				</div>
+			</div>
+			<button class="btn btn-primary">Update</button>
+		</form>
+	</div>
+	<div class="d-inline mt-lg-5 pt-lg-5">
+		<img class="rounded-circle img-thumbnail img-fluid" src="@Model.PictureUrl" />
+	</div>
+</div>
+
+
+

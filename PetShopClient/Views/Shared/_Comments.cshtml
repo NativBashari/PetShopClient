@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Comment>
+
+@foreach (var comment in Model){
+	<section>
+			<div class="card-footer py-3 border-1" style="background-color: #f8f9fa;">
+				<div class="d-flex flex-start w-100">
+					<img class="rounded-circle shadow-1-strong me-3"
+						 src="https://img.freepik.com/premium-vector/young-man-avatar-character-vector-illustration-design_24877-18516.jpg?w=2000" alt="avatar" width="40"
+						 height="60" />
+					<div class="form-outline w-100">
+						<p class="form-control" id="textAreaExample" rows="4"
+								  style="background: #fff;">@comment.CommentText</p>
+					</div>
+			</div>	
+			</div>
+		</section>
+
+
+}

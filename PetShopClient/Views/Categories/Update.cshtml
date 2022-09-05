@@ -1,0 +1,18 @@
+﻿@{
+	ViewData["Title"] = "Update";
+}
+@model Category
+<form method="post" asp-action="Update">
+	<div class="form-row">
+		<div class="col-md-10 mb-3">
+			<input asp-for="CategoryId" hidden />
+		</div>
+		<div class="col-md-10 mb-3">
+			<label>Category name</label>
+			<input asp-for="Name" class="form-control" />
+			<span asp-validation-for="Name" class="text-danger"></span>
+		</div>
+	</div>
+	<button class="btn-outline-success" type="submit">Update</button>
+</form>
+

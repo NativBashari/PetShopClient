@@ -1,0 +1,51 @@
+﻿@{
+	ViewData["Title"] = "Index";
+}
+@model IEnumerable<Animal>;
+<div>
+	<div class="mb-4">
+		<div class="justify-content-center">
+			<a class="btn btn-light" asp-controller="Categories" asp-action="Index">Edit Categories</a>
+		</div>
+		<form method="post" asp-action="Index">
+			<lable>Select Category </lable>
+			<select id="id" name="id" class="form-select">
+				<option value="0">Categories</option>
+				@foreach (var item in this.ViewBag.Items)
+				{
+					<option value="@item.CategoryId">@item.Name</option>
+				}
+			</select>
+			<button type="submit" class="btn btn-success">Filter</button>
+		</form>
+		<div class="d-grid gap-2 col-6 mx-auto">
+		<a class="btn btn-success" asp-action="AddAnimal">Add</a>
+		</div>
+	</div>	
+	<table class="table table-hover">
+		<thed>
+			<tr>
+				<th>Name</th>
+				<th>Age</th>
+				<th>Picture</th>
+				<th>Description</th>
+				<th>Operations</th>
+			</tr>
+		</thed>
+		<tbody>
+			@foreach (var animal in Model)
+			{
+				<tr>
+					<td>@animal.Name</td>
+					<td>@animal.Age</td>
+					<td><img src="@animal.PictureUrl" /></td>
+					<td>@animal.Description</td>
+					<td><a class="btn btn-primary" asp-action="Update" asp-route-id="@animal.AnimalId">Update</a></td>
+					<td><a class="btn btn-danger" asp-action="DeleteAnimal" asp-route-id="@animal.AnimalId">Delete</a></td>
+					<td><a class="btn btn-success" asp-action="GetComments" asp-route-id="@animal.AnimalId">Comments</a></td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
+

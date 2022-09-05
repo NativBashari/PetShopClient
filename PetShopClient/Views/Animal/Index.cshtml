@@ -1,0 +1,15 @@
+﻿@{
+	ViewData["Title"] = "Index";
+}
+@model Animal;
+<div class="d-flex justify-content-between">
+	<div class="w-50 m-5 d-inline-block">
+		<partial name="_AnimalView" model="@Model"></partial>
+	</div>
+	<div class="w-50 m-5 d-inline-block">
+		<partial name="_Comments" model="@Model.Comments"></partial>
+		<div>
+			<partial name="_PostComment" model="@new Comment(){AnimalId = @Model.AnimalId}"></partial>
+		</div>
+	</div>
+</div>
